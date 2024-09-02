@@ -1,0 +1,13 @@
+12
+12 abc 0
+1 abc 12
+2 abc 12
+3 abc 12
+9 abc 2
+7 abc 2
+11 abc 3
+5 abc 1
+4 abc 1
+12 abc 3
+6 abc 3
+10 abc 3

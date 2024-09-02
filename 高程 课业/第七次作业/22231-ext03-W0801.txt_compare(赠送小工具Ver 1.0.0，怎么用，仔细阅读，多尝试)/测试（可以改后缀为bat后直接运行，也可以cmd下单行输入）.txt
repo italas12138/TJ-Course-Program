@@ -1,0 +1,36 @@
+@echo off
+
+rem 测试文件准备
+rem	1.txt ：正常文件
+rem	2.txt ：在1.txt的基础上，某些行前面无空格
+rem	3.txt ：在1.txt的基础上，某些行后面无空格
+rem	4.txt ：在1.txt的基础上，最后一行没有回车
+rem	5.txt ：在1.txt的基础上，多一些空行
+rem	6.txt ：在1.txt的基础上，多一些空行，其中某些行有空格和tab
+rem	7.txt ：和1.txt完全相同
+rem	8.txt ：是1.txt的Linux格式版
+
+rem 相同的例子
+txt_compare --file1 1.txt --file2 2.txt --trim left
+txt_compare --file1 1.txt --file2 2.txt --trim all
+txt_compare --file1 2.txt --file2 3.txt --trim all
+txt_compare --file1 1.txt --file2 4.txt --trim right --ignore_blank
+txt_compare --file1 1.txt --file2 4.txt --trim all --ignore_blank
+txt_compare --file1 2.txt --file2 4.txt --trim all --ignore_blank
+txt_compare --file1 3.txt --file2 4.txt --trim right --ignore_blank
+txt_compare --file1 3.txt --file2 4.txt --trim all --ignore_blank
+txt_compare --file1 1.txt --file2 5.txt --trim right --ignore_blank
+txt_compare --file1 1.txt --file2 6.txt --ignore_blank --trim right
+txt_compare --file1 5.txt --file2 6.txt --ignore_blank --trim all
+txt_compare --file1 1.txt --file2 7.txt
+txt_compare --file1 1.txt --file2 8.txt
+
+rem 不相同的例子
+txt_compare --file1 1.txt --file2 2.txt
+txt_compare --file1 1.txt --file2 2.txt --trim right
+txt_compare --file1 1.txt --file2 5.txt
+txt_compare --file1 1.txt --file2 5.txt --trim right
+txt_compare --file1 1.txt --file2 6.txt
+txt_compare --file1 1.txt --file2 6.txt --ignore_blank
+txt_compare --file1 1.txt --file2 8.txt --CR_CRLF_not_equal
+
